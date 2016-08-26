@@ -34,6 +34,14 @@ juke.controller('displayPlaylistCtrl', function ($scope, PlaylistFactory, Player
     return PlayerFactory.isPlaying() && PlayerFactory.getCurrentSong() === song;
   };
 
+  $scope.delete = function (song) {
+    
+    $scope.playlist.songs = $scope.playlist.songs.filter(function(songInArr){
+      return songInArr.id !== song.id; 
+    })
+    return PlaylistFactory.deleteSong($stateParams.id, song.id);
+  }
+
 
 PlaylistFactory.fetchById ($stateParams.id)
 	.then( function (data) {

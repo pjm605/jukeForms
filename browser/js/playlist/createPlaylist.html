@@ -9,8 +9,13 @@
         </div>
       </div>
      
-      <!-- <div class="alert alert-warning" ng-show="playlistform.name.$dirty && playlistform.name.$invalid">Please enter a name between 1 and 16 characters</div>
-      <div class="form-group"> -->
+     <div ng-messages="playlistform.name.$error" role="alert">
+      <div class="alert alert-warning" ng-message="maxlength">
+       Please enter a name between 1 and 16 characters 
+      </div>
+      </div>
+
+      <div class="form-group">
         <div class="col-xs-10 col-xs-offset-2">
           <button ng-disabled="playlistform.$invalid" type="submit" class="btn btn-success" ng-click="makePlaylist()" >Create Playlist</button>
         </div>

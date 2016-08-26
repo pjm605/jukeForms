@@ -38,6 +38,13 @@ juke.factory('PlaylistFactory', function ($http, SongFactory) {
       })
   }
 
+  PlaylistFactory.deleteSong = function (playlistId, songId) {
+    return $http.delete ('/api/playlists/' + playlistId + '/songs/' + songId)
+      .then (function (res) {
+        return res.data
+      })
+  }
+
   return PlaylistFactory
 
 
