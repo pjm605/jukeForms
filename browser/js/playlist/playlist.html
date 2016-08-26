@@ -2,7 +2,7 @@
   <h3>{{ playlist.name }}</h3>
   <div>
     <h4>Add to Playlist</h4>
-    <select ng-options=" song as song.name for song in allSongs" ng-model="selected"></select>
+    <input type="text" uib-typeahead=" song as song.name for song in allSongs" ng-model="selected" ></input>
       <button class="btn btn-default btn-xs" ng-click="addSong()"> Add Song
       </button>
   </div>
@@ -15,7 +15,7 @@
         <th>Genres</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody ui-sortable ng-model="playlist.songs">
       <tr ng-repeat="song in playlist.songs" ng-class="{active: song === getCurrentSong() }">
         <td>
           <button class="btn btn-default btn-xs" ng-click="toggle(song)">

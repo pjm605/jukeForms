@@ -58,6 +58,7 @@ $scope.addSong = function () {
   PlaylistFactory.addSong($stateParams.id, $scope.selected)
   .then(function(song){
      $scope.playlist.songs.push(song); 
+     $scope.selected = null; 
   })
  
 }

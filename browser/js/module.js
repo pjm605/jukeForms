@@ -1,6 +1,6 @@
 'use strict';
 
-var juke = angular.module('juke', ['ui.router', 'ngMessages']);
+var juke = angular.module('juke', ['ui.router', 'ngMessages', 'ui.bootstrap', 'ui.bootstrap.typeahead', 'ui.sortable']);
 
 juke.run(function ($rootScope) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
