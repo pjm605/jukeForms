@@ -1,6 +1,6 @@
 'use strict';
 
-juke.factory('PlaylistFactory', function ($http) {
+juke.factory('PlaylistFactory', function ($http, SongFactory) {
 
 	var cachedPlaylists = [];
   var PlaylistFactory = {};
@@ -29,6 +29,13 @@ juke.factory('PlaylistFactory', function ($http) {
   			return res.data
   		})
 
+  }
+
+  PlaylistFactory.addSong = function (id, song) {
+    return $http.post('/api/playlists/' + id  + '/songs', song)
+      .then(function (res) {
+        return SongFactory.convert(res.data)
+      })
   }
 
   return PlaylistFactory
